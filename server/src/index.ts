@@ -8,13 +8,13 @@ import noteRoutes from './routes/note.routes';
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// --- CORS Configuration ---
+// --- Correct CORS Configuration (Only one) ---
 const corsOptions = {
-  origin: 'https://note-taking-appsanki.vercel.app', // Your Vercel frontend URL
-  optionsSuccessStatus: 200 // For legacy browser support
+  origin: 'https://note-taking-appsanki.vercel.app',
+  optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
-// --- End CORS Configuration ---
+// -----------------------------------------
 
 app.use(express.json());
 
@@ -23,7 +23,18 @@ app.use('/api/users', userRoutes);
 app.use('/api/notes', noteRoutes);
 
 const startServer = async () => {
-  // ... rest of the file is the same
+  try {
+    await sequelize.authenticate();
+    console.log('Database connection has been established successfully.');
+    await sequelize.sync({ alter: true });
+    console.log('All models were synchronized successfully.');
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
 };
 
 startServer();
