@@ -8,11 +8,17 @@ import noteRoutes from './routes/note.routes';
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// --- Correct CORS Configuration (Only one) ---
+// --- Correct CORS Configuration ---
 const corsOptions = {
-  origin: 'https://note-taking-appsanki.vercel.app',
+  // Use the new Vercel URL from your screenshot
+  origin: 'https://client-ten-ashy-85.vercel.app', 
   optionsSuccessStatus: 200
 };
+
+// Explicitly handle preflight requests
+app.options('*', cors(corsOptions)); 
+
+// Use the CORS middleware for all other requests
 app.use(cors(corsOptions));
 // -----------------------------------------
 
