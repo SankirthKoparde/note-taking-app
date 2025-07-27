@@ -3,7 +3,7 @@
 A complete full-stack note-taking application built with a modern technology stack. It features a secure user authentication system using email and OTP, and allows users to create and manage their notes.
 
 ### Live URLs
-* **Frontend (Vercel)**: [https://client-ten-ashy-85.vercel.app](https://client-ten-ashy-85.vercel.app)
+* **Frontend (Vercel)**: [https://note-taking-app-chi-ten.vercel.app/](https://note-taking-app-chi-ten.vercel.app/)
 * **Backend (Render)**: [https://note-app-server.onrender.com](https://note-app-server.onrender.com)
 
 ## Features
