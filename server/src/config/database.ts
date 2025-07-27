@@ -1,4 +1,3 @@
-// src/config/database.ts
 import { Sequelize } from 'sequelize-typescript';
 import 'dotenv/config';
 import User from '../models/user.model';
@@ -11,11 +10,12 @@ const sequelize = new Sequelize({
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  models: [User, Note], // Sequelize loads the models
+  models: [User, Note],
+  logging: false, // Set to true to see SQL queries
 });
 
-// Define relationships AFTER models are loaded
-User.hasMany(Note, { foreignKey: 'userId' });
+// Define relationships
+User.hasMany(Note, { foreignKey: 'userId', onDelete: 'CASCADE' });
 Note.belongsTo(User, { foreignKey: 'userId' });
 
 export default sequelize;

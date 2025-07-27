@@ -17,7 +17,7 @@ export const sendOtpEmail = async (to: string, otp: string) => {
     html: `
       <div style="font-family: Arial, sans-serif; color: #333;">
         <h2>Welcome to HD Notes!</h2>
-        <p>Your One-Time Password (OTP) to complete your registration is:</p>
+        <p>Your One-Time Password (OTP) is:</p>
         <p style="font-size: 24px; font-weight: bold; letter-spacing: 2px;">${otp}</p>
         <p>This OTP is valid for 5 minutes.</p>
       </div>

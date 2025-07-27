@@ -1,27 +1,19 @@
 import 'dotenv/config';
-import express, { Request, Response } from 'express';
+import express from 'express';
 import cors from 'cors';
 import sequelize from './config/database';
-import userRoutes from './routes/user.routes'; // Import user routes
-import noteRoutes from './routes/note.routes'; 
+import userRoutes from './routes/user.routes';
+import noteRoutes from './routes/note.routes';
+
 const app = express();
 const PORT = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(express.json());
 
-// --- Routes ---
-app.use('/api/users', userRoutes); // Changed from '/users' to '/api/users'
+// API Routes
+app.use('/api/users', userRoutes);
 app.use('/api/notes', noteRoutes);
-
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello from the SQL API!');
-});
-
-// Add this catch-all 404 handler after all other routes
-app.use((req: Request, res: Response) => {
-  res.status(404).json({ message: 'Endpoint not found' });
-});
 
 const startServer = async () => {
   try {
