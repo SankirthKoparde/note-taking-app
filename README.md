@@ -4,7 +4,7 @@ A complete full-stack note-taking application built with a modern technology sta
 
 ### Live URLs
 * **Frontend (Vercel)**: [https://note-taking-app-chi-ten.vercel.app/](https://note-taking-app-chi-ten.vercel.app/)
-* **Backend (Render)**: [https://note-app-server.onrender.com](https://note-app-server.onrender.com)
+* **Backend (Render)[https://note-taking-app-yb8w.onrender.com/](https://note-taking-app-yb8w.onrender.com/)
 
 ## Features
 * **User Authentication**: Secure sign-up and sign-in flow using email and One-Time Passwords (OTP).
